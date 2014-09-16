@@ -1,0 +1,40 @@
+.jiggly {
+    cursor: move;
+    -webkit-animation: jiggle 0.2s infinite;
+    -webkit-transform: rotate(-2deg);
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: rotate(-2deg);
+    }
+    50% {
+        -webkit-transform: rotate(1deg);
+    }
+}
+
+div.room {
+    min-height: 100px;
+    width: 100%;
+    background-color: #FFCC66;
+    margin: 5px;
+}
+
+div.hidden {
+    display: none;
+}
+
+div.draggable {
+    position: absolute;
+    opacity: .5;
+    z-index: 1;
+}
+
+div.icon {
+    width: 100px;
+    height: 100px;
+    margin: 5px 2px 5px 2px;
+    background-color: blue;
+    border-radius: 5px;
+    display: inline-block;
+}
