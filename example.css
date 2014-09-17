@@ -6,3 +6,10 @@
   border-radius: 5px;
   display: inline-block;
 }
+
+div.drop-zone {
+  min-height: 100px;
+  width: 100%;
+  background-color: #FFCC66;
+  margin: 5px;
+}

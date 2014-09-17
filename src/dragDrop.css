@@ -13,13 +13,6 @@
     }
 }
 
-div.drop-zone {
-    min-height: 100px;
-    width: 100%;
-    background-color: #FFCC66;
-    margin: 5px;
-}
-
 div.hidden {
     display: none !important;
 }
@@ -27,5 +20,4 @@ div.hidden {
 div.placeholder {
     position: absolute;
     opacity: .5;
-    z-index: 100;
 }

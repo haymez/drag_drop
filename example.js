@@ -9,4 +9,7 @@ btn.addEventListener('click', function() {
   }
 });
 
-var instance = new DragDrop(); //Initialize class DragDrop()
+var fn = function(opts) {
+  opts.to.appendChild(opts.item);
+}
+var instance = new DragDrop(fn); //Initialize class DragDrop()
