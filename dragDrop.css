@@ -13,7 +13,7 @@
     }
 }
 
-div.room {
+div.drop-zone {
     min-height: 100px;
     width: 100%;
     background-color: #FFCC66;
@@ -21,20 +21,11 @@ div.room {
 }
 
 div.hidden {
-    display: none;
+    display: none !important;
 }
 
-div.draggable {
+div.placeholder {
     position: absolute;
     opacity: .5;
-    z-index: 1;
-}
-
-div.icon {
-    width: 100px;
-    height: 100px;
-    margin: 5px 2px 5px 2px;
-    background-color: blue;
-    border-radius: 5px;
-    display: inline-block;
+    z-index: 100;
 }
