@@ -7,11 +7,6 @@ var DragDrop = function(callback) {
   var touchstart       = null;
   var lastMove         = null;
 
-  var drag = document.createElement('div');
-  drag.className = 'placeholder draggable hidden';
-  drag.id = 'drag';
-  document.body.appendChild(drag);
-
   var isWithin = function(needle) {
     var list = document.getElementsByClassName('drop-zone');
     for(var i = 0; i < list.length; i++) {
@@ -30,11 +25,11 @@ var DragDrop = function(callback) {
     currentSelection = curr;
     dragging         = true;
 
-    if(drag.className.indexOf('hidden') > -1) drag.classList.toggle('hidden');
-    if(drag.childNodes.length == 0) drag.appendChild(currentSelection.cloneNode());
-    drag.lastChild.innerHTML = currentSelection.innerHTML;
-    drag.style.left = evt.pageX - (drag.offsetWidth/2) + 'px';
-    drag.style.top = evt.pageY - (drag.offsetHeight/2) + 'px';
+    var shadowSize = currentSelection.offsetWidth * .15;
+    currentSelection.classList.toggle('placeholder');
+    currentSelection.style.boxShadow = shadowSize + 'px ' + shadowSize + 'px ' + shadowSize + 'px ' + '#888888';
+    currentSelection.style.left = evt.pageX - (currentSelection.offsetWidth/2) + 'px';
+    currentSelection.style.top = evt.pageY - (currentSelection.offsetHeight/2) + 'px';
   }
 
   var moveElement = function(evt) {
@@ -43,8 +38,8 @@ var DragDrop = function(callback) {
     if(dragging) {
       lastMove = {x: evt.pageX, y: evt.pageY};
       evt.preventDefault();
-      drag.style.left = evt.pageX - (drag.offsetWidth/2) + 'px';
-      drag.style.top = evt.pageY - (drag.offsetHeight/2) + 'px';
+      currentSelection.style.left = evt.pageX - (currentSelection.offsetWidth/2) + 'px';
+      currentSelection.style.top = evt.pageY - (currentSelection.offsetHeight/2) + 'px';
     }
   }
   
@@ -55,9 +50,9 @@ var DragDrop = function(callback) {
       if(dropped) {
         callback.call(this, {from: oldDropZone, to: dropped, item: currentSelection})
       }
-      document.getElementById('drag').classList.toggle('hidden');
+      currentSelection.classList.toggle('placeholder');
+      currentSelection.style.boxShadow = '';
     }
-    drag.innerHTML = '';
     currentSelection = null;
     dragging = false;
   }
@@ -66,9 +61,7 @@ var DragDrop = function(callback) {
     var curr = evt.target;
     if(curr.className.indexOf('draggable') > -1) {
       // Hold finger for 250 ms to make element movable
-      if(!touchstart) touchstart = setTimeout(function() {
-        mouseDown(evt);
-      }, 250);
+      if(!touchstart) touchstart = setTimeout(function() {mouseDown(evt);}, 250);
     }
   }
 
