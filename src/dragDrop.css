@@ -1,18 +1,3 @@
-.jiggly {
-    cursor: move;
-    -webkit-animation: jiggle 0.2s infinite;
-    -webkit-transform: rotate(-2deg);
-}
-
-@-webkit-keyframes jiggle {
-    0% {
-        -webkit-transform: rotate(-2deg);
-    }
-    50% {
-        -webkit-transform: rotate(1deg);
-    }
-}
-
 div.hidden {
     display: none !important;
 }
@@ -20,4 +5,5 @@ div.hidden {
 div.placeholder {
     position: absolute;
     opacity: .5;
+    /*box-shadow: 5px 5px 5px #888888;*/
 }

@@ -13,3 +13,18 @@ div.drop-zone {
   background-color: #FFCC66;
   margin: 5px;
 }
+
+.jiggly {
+    cursor: move;
+    -webkit-animation: jiggle 0.2s infinite;
+    -webkit-transform: rotate(-2deg);
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: rotate(-2deg);
+    }
+    50% {
+        -webkit-transform: rotate(1deg);
+    }
+}
