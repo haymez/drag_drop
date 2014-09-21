@@ -13,4 +13,4 @@ btn.addEventListener('click', function() {
 var fn = function(opts) {
   opts.to.appendChild(opts.item);
 }
-var instance = new DragDrop(fn); //Initialize class DragDrop()
+var instance = new DragDrop(fn); //Initialize DragDrop()
