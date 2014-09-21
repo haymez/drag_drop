@@ -1,9 +1,8 @@
 #Drag Drop
-___
 A minimalist JavaScript framework for handling drag and drop.
 
 Supports mobile touch events. 
-___
+
 ##What does it do?
 Not much. 
 
